@@ -1,32 +1,17 @@
-// App.js
-import React, { useState } from 'react';
+
 import './App.css';
-import LoginForm from './components/LoginForm';
-import NavigationBar from './components/NavigationBar';
-import BookCatalog from './components/BookCatalog';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HOC from './components/HOC';
+import Person1 from './components/Person1';
+import Person2 from './components/Person2';
 
 function App() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
-
-
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          {/* Pass the onLogin function as a prop */}
-          <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
-          <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
-          <Route path="/m" element={<BookCatalog />} />
-        </Routes>
-      </BrowserRouter>
+      <HOC/>
+      <Person1/>
+      <Person2/>
     </div>
   );
-  }
-
+}
 
 export default App;
